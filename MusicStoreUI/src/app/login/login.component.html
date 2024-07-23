@@ -1,0 +1,14 @@
+<h1>Log In</h1>
+<form (ngSubmit) = "onSubmit()">
+  <label for="emailId">Email</label>
+  <input type="email" id="emailId"  [(ngModel)]="signinData.emailId" name="emailId" required>
+  <br />
+  <br />
+  
+  <label for="password">Password</label>
+  <input type="password" id="password" [(ngModel)]="signinData.password" name="password" required />
+  <br />
+  <br />
+  
+  <input type="submit" class="btn btn-primary" value="Sign In" />
+</form>
