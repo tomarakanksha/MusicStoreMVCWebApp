@@ -13,7 +13,7 @@ import { CommonModule , JsonPipe} from '@angular/common';
   imports: [FormsModule, CommonModule]
 })
 export class LoginComponent {
-  signinData = new Login(0,"example@example.com","1234",'I', '')
+  signinData = new Login(0,"","",'I', '')
   constructor(
     private authService: AuthService,
     private router: Router
@@ -26,8 +26,8 @@ export class LoginComponent {
       next: data=>{
         var response = data;
         if (response && response.userId && response.userType && response.userId !== 0) {
-          localStorage.setItem('userId', response.userId);
-          localStorage.setItem('userType', response.userType);
+          sessionStorage.setItem('userId', response.userId);
+          sessionStorage.setItem('userType', response.userType);
 
           if (response.userType === 'E') {
             this.router.navigate(['/EmployeeDashboard']);

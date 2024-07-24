@@ -4,10 +4,14 @@ import { LoginComponent } from './login/login.component';
 import { Component } from '@angular/core';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+
 import { AddAlbumComponent } from './add-album/add-album.component';
 import { HomeComponent } from './home-component/home-component.component';
 import { RegisterComponent } from './register-component/register-component.component';
 import { CartComponent } from './cart-component/cart-component.component';
+import { AlbumDetailsComponent } from './album-details/album-details.component';
+import { SignoutComponent } from './signout/signout.component';
+
 
 export const routes: Routes = [
     {path: 'Login', component:LoginComponent},
@@ -15,9 +19,9 @@ export const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'cart', component: CartComponent},
     { path: 'CustomerDashboard', component: CustomerDashboardComponent },
+    {path:'AlbumDetails', component:AlbumDetailsComponent},
     { path: 'EmployeeDashboard', component: EmployeeDashboardComponent },
-    { path: 'Album', component: AddAlbumComponent},
-    {path: 'Logout', component:LoginComponent},
+    {path: 'Logout', component:SignoutComponent},
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

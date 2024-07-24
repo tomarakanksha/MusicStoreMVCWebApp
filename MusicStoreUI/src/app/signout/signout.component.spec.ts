@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddAlbumComponent } from './add-album.component';
+import { SignoutComponent } from './signout.component';
 
-describe('AddAlbumComponent', () => {
-  let component: AddAlbumComponent;
-  let fixture: ComponentFixture<AddAlbumComponent>;
+describe('SignoutComponent', () => {
+  let component: SignoutComponent;
+  let fixture: ComponentFixture<SignoutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddAlbumComponent]
+      imports: [SignoutComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(AddAlbumComponent);
+    fixture = TestBed.createComponent(SignoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
