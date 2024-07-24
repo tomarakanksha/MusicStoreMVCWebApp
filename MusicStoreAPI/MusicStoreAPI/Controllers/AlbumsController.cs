@@ -23,7 +23,7 @@ namespace MusicStoreMVCebApp.Controllers
         }
 
         [HttpGet("GetSongsByAlbumId")]
-        public IEnumerable<SongDTO> GetSongsByAlbumId([FromHeader] Int64 id)
+        public IEnumerable<SongDTO> GetSongsByAlbumId([FromQuery] Int64 id)
         {
             return _albums.GetSongsByAlbumId(id);
         }
