@@ -1,0 +1,22 @@
+<h2>Songs in the album: {{albumName}}</h2>
+<table class="table" style=" width:100%;">
+    <thead style="background-color:cornflowerblue">
+        <tr>
+            <th style="padding:10px;">Song</th>
+            <th>Artist</th>
+            <th>Genre</th>
+            <th>Preview</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let song of songs" style="background-color:aquamarine">
+        <td>{{song.songName}}</td>
+        <td>{{song.artistName}}</td>
+        <td>{{song.genreName}}</td>
+        <td>
+        <audio id="preview" controls="" controlsList="nodownload noplaybackrate">
+            <source [src]="'assets/data/' + song.refDemoFilePath"  type="audio/mp4">|></audio>
+        </td>
+    </tr>
+
+
+</table>
