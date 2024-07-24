@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Album } from '../models/album';
 import { getAlbums } from '../service/album.data.service';
 import { CommonModule } from '@angular/common';
@@ -10,14 +10,17 @@ import { CommonModule } from '@angular/common';
   templateUrl: './customer-dashboard.component.html',
   styleUrl: './customer-dashboard.component.css'
 })
-export class CustomerDashboardComponent {
+export class CustomerDashboardComponent implements OnInit{
   albums:Album[] = [];
   constructor(
     private albumDataService:getAlbums){
       
-        this.showAlbums();
-      
     }
+    
+    public ngOnInit(): void {
+      this.showAlbums();
+    }
+    
     showAlbums():any{
       this.albumDataService.getAllAlbums().subscribe({
         next: data=>{

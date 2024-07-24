@@ -7,6 +7,9 @@ export class UserService{
     constructor(){}
 
     getUserType(){
-        return sessionStorage.getItem("userType") || "I";
+        if(sessionStorage.getItem("userType") != undefined){
+            return sessionStorage.getItem("userType")
+        }
+        return "I";
     }
 }
