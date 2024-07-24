@@ -1,21 +1,27 @@
-<header>
-  <div class="topnav">
-    <a class="active" href="#">Logo</a>
-    <a href="CustomerDashboard">Dashboard</a>
-    <a href="#">Cart</a>
-    <a href="Login">Login</a>
-    <a href="Logout">SignOut</a>
+<div class = "page">
+  <header>
+    <div class="topnav">
+      <a class="active" href="#">Sa Re Ga Ma Music Store</a>
+      <a href="register">Register</a>
+      <a href="Login">Login</a>
+      <a href="CustomerDashboard">Dashboard</a>
+      <a href="cart">Cart</a>
+      
+      
+    </div>
+  </header>
+  <div class="main-content">
+    <router-outlet></router-outlet>
   </div>
-</header>
-
-<router-outlet />
-<div class="footer-basic">
-<footer>
-  <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Contact </a></li>
-      <li class="list-inline-item"><a href="#">About</a></li>
-      <li class="list-inline-item"><a href="#">Privacy</a></li>
-  </ul>
-  <p class="copyright">MusicStore © 2024</p>
-</footer>
+  <div class="footer-basic">
+  <footer>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Contact </a></li>
+        <li class="list-inline-item"><a href="#">About</a></li>
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+    </ul>
+    <p class="copyright">Sa Re Ga Ma MusicStore © 2024</p>
+  </footer>
+  </div>
 </div>
+
