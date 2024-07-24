@@ -5,7 +5,7 @@ import { Album } from '../models/album';
 import { Song } from '../models/song';
 
 
-const API_URL = 'https://localhost:7000';
+const API_URL = 'http://localhost:5160';
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/JSON', 'Access-Control-Allow-Origin':'*', })
   }
