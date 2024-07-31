@@ -55,7 +55,7 @@
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #101b4a;
     color: white;
     border: none;
     border-radius: 4px;
@@ -64,6 +64,6 @@
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: rgb(225, 126, 5);
   }
   

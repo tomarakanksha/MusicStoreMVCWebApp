@@ -4,6 +4,10 @@
     padding: 20px;
     border: 1px solid #ccc;
   }
+  .heading {
+    display: flex;
+    justify-content: center;
+  }
   
   .form-column {
     display: flex;
@@ -24,16 +28,20 @@
     padding: 8px;
     margin-top: 5px;
   }
-  
+  .button-container {
+    display: flex;
+    justify-content: center; 
+  }
+
   button {
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
+  background-color: #101b4a;
+  color: white;
+  border: none;
+  cursor: pointer;
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: rgb(225, 126, 5);
   }
   
