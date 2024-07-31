@@ -8,11 +8,17 @@ namespace MusicStoreMVCebApp.Controllers
     [Route("[controller]")]
     public class EmployeeController : ControllerBase
     {
-        public EmployeeController()
+        private readonly EmployeeDL _employeeDL;
+        public EmployeeController(EmployeeDL employeeDL)
         {
+            _employeeDL = employeeDL;
         }
 
-        
+        [HttpGet("GetEmployeeByID")]
+        public EmployeeDTO GetEmployeeByID([FromHeader] int id)
+        {
+            return _employeeDL.GetEmployeeByID(id);
+        }
 
     }
 }
