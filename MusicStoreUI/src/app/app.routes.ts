@@ -9,6 +9,9 @@ import { RegisterComponent } from './register-component/register-component.compo
 import { CartComponent } from './cart-component/cart-component.component';
 import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { SignoutComponent } from './signout/signout.component';
+import { PaymentComponent } from './payment/payment.component';
+import { ShippingComponent } from './shipping/shipping.component';
+import { FormsModule } from '@angular/forms';
 
 
 export const routes: Routes = [
@@ -19,10 +22,12 @@ export const routes: Routes = [
     { path: 'CustomerDashboard', component: CustomerDashboardComponent },
     {path:'AlbumDetails', component:AlbumDetailsComponent},
     { path: 'EmployeeDashboard', component: EmployeeDashboardComponent },
+    { path: 'payment', component: PaymentComponent},
+    { path: 'shipping', component: ShippingComponent},
     {path: 'Logout', component:SignoutComponent},
 ];
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes), FormsModule],
     exports: [RouterModule]
   })
   export class AppRoutingModule { }
