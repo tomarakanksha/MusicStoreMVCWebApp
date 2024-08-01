@@ -13,13 +13,13 @@
     <tbody>
       <tr *ngFor="let item of cartItems">
         <td>{{ item.albumName }}</td>
-        <td>{{ item.price | currency }}</td>
+        <td>{{ item.priceAfterDiscount | currency }}</td>
         <td>
           <button (click)="decreaseQuantity(item)">-</button>
           {{ item.quantity }}
           <button (click)="increaseQuantity(item)">+</button>
         </td>
-        <td>{{ item.price * item.quantity | currency }}</td>
+        <td>{{ item.priceAfterDiscount * item.quantity | currency }}</td>
         <td>
           <button class="remove-button" (click)="removeItem(item)">Remove</button>
         </td>

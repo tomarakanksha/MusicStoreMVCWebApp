@@ -1,64 +1,60 @@
-* {
+body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body, html {
     height: 100%;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden;
+    font-family: Arial, sans-serif;
 }
 
 .homepage {
-    position: relative;
-    height: 100vh; /* Full viewport height */
-    background-image: url('../../assets/bg.avif'); /* Add your background image here */
-    background-size: cover;
-    background-position: center;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background: url('../../assets/bg.avif') no-repeat center center fixed;
+    background-size: cover;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6); 
-    z-index: 1;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #101b4a;
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo {
+    height: 50px;
+}
+
+.navbar a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
 }
 
 .content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
+    text-align: center;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 20px;
+    border-radius: 10px;
 }
 
-.content h1 {
+h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
+    color: #101b4a;
 }
 
-.content p {
+p {
     font-size: 1.2em;
     line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-    .content h1 {
-        font-size: 2em;
-    }
-
-    .content p {
-        font-size: 1em;
-    }
+    color: #333;
 }

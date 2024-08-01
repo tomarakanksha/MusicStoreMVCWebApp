@@ -3,7 +3,7 @@
   <form (ngSubmit)="onSubmit()">
     <div class="form-column">
       <div class="form-group">
-        <label for="emailId">Email</label>
+        <label id="email_label" for="emailId">Email</label>
         <input type="email" id="emailId" [(ngModel)]="signinData.emailId" name="emailId" required>
       </div>
       <div class="form-group">

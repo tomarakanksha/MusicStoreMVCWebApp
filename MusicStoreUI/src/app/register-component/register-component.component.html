@@ -3,32 +3,32 @@
   <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <div class="form-column">
       <div class="form-group">
-        <label for="FName">First Name:</label>
+        <label id="label1" for="FName">First Name:</label>
         <input type="text" id="FName" [(ngModel)]="model.FName" name="FName" required>
       </div>
 
       <div class="form-group">
-        <label for="LName">Last Name:</label>
+        <label id="label2" for="LName">Last Name:</label>
         <input type="text" id="LName" [(ngModel)]="model.LName" name="LName" required>
       </div>
 
       <div class="form-group">
-        <label for="emailID">Email:</label>
+        <label id="label3" for="emailID">Email:</label>
         <input type="email" id="emailID" [(ngModel)]="model.emailID" name="emailID" required>
       </div>
 
       <div class="form-group">
-        <label for="Password">Password:</label>
+        <label id="label4" for="Password">Password:</label>
         <input type="password" id="Password" [(ngModel)]="model.Password" name="Password" required>
       </div>
 
       <div class="form-group">
-        <label for="Phone">Phone Number:</label>
+        <label id="label5" for="Phone">Phone Number:</label>
         <input type="tel" id="Phone" [(ngModel)]="model.Phone" name="Phone" required>
       </div>
 
       <div class="form-group">
-        <label for="UserType">User Type: </label>
+        <label id="label6" for="UserType">User Type: </label>
         <select id="UserType" [(ngModel)]="model.UserType" name="UserType" required>
           <option value="">Select user type</option>
           <option value="customer">Customer</option>
@@ -36,15 +36,15 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="ShippingAddr">Shipping Address:</label>
+      <label id="label7" for="ShippingAddr">Shipping Address:</label>
       <textarea id="ShippingAddr" [(ngModel)]="model.ShippingAddr" name="ShippingAddr"></textarea>
     </div>
     <div class="form-group">
-      <label for="BillingAddr">Billing Address:</label>
+      <label id="label8" for="BillingAddr">Billing Address:</label>
       <textarea id="BillingAddr" [(ngModel)]="model.BillingAddr" name="BillingAddr"></textarea>
     </div>
     <div class="form-group">
-      <label for="CustomerCategory">Customer Category (Regular/Premium):</label>
+      <label id="label9" for="CustomerCategory">Customer Type:</label>
       <select id="CustomerCategory" [(ngModel)]="model.CustomerCategory" name="CustomerCategory">
         <option value="">Select Customer type</option>
         <option value="Regular">Regular</option>

@@ -15,11 +15,13 @@ export class CartComponent implements OnInit {
   //cartItems: CartItem[] = [];
   cartItems: any[] = [];
   totalPrice: number = 0;
+  userId: string | null = sessionStorage.getItem("userId");
+  orderId: number = 0;
 
   constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
-    this.cartService.getCartItems().subscribe(items => {
+    this.cartService.getCartItems(this.userId).subscribe(items => {
       this.cartItems = items;
       this.calculateTotalPrice();
     });
@@ -43,15 +45,16 @@ export class CartComponent implements OnInit {
     }
   }
   removeItem(item: any): void {
-    this.cartItems = this.cartItems.filter(cartItem => cartItem !== item);
+    this.cartItems = this.cartItems.filter(cartItem => cartItem !== item); //post request with userid, cart id, cart/removeItem
     this.calculateTotalPrice();
   }
 
   calculateTotalPrice(): void {
-    this.totalPrice = this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    this.totalPrice = this.cartItems.reduce((total, item) => total + item.priceAfterDiscount * item.quantity, 0);
   }
 
   checkout(): void {
-    this.router.navigate(['/payment']);
+    //this.orderId = 
+    this.router.navigate(['/payment?orderId='+this.orderId]); //post request with user id, cart items order/createOrder returns orderId
   }
 }

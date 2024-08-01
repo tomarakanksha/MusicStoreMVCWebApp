@@ -3,9 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface CartItem {
+  cartID: number,
   albumId: number;
   albumName: string;
-  price: number;
+  priceAfterDiscount: number;
   quantity: number;
 }
 const httpOptions = {
@@ -20,7 +21,7 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
-  getCartItems(): Observable<CartItem[]> {
-    return this.http.get<CartItem[]>(this.apiUrl+'/cart/getCartItems',httpOptions);
+  getCartItems(userId: string | null): Observable<CartItem[]> {
+    return this.http.get<CartItem[]>(this.apiUrl+'/cart/getCartItems?userId='+userId,httpOptions);
   }
 }

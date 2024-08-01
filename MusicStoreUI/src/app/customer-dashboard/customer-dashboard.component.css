@@ -21,11 +21,12 @@
   .table-header {
     background-color: #101b4a;
     color: white;
+    text-align: center;
   }
   
   .table-header th {
     padding: 10px;
-    text-align: left;
+    border-bottom: 2px solid #ccc;
   }
   
   .table-row {
@@ -34,6 +35,8 @@
   
   .table-row td {
     padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
   }
   
   .table-row td .btn-primary {
