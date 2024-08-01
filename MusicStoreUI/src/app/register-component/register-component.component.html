@@ -3,13 +3,15 @@
   <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <div class="form-column">
       <div class="form-group">
-        <label id="label1" for="FName">First Name:</label>
-        <input type="text" id="FName" [(ngModel)]="model.FName" name="FName" required>
+
+        <label for="FName">First Name:</label>
+        <input type="text" id="FName" [(ngModel)]="model.fName" name="FName" required>
       </div>
 
       <div class="form-group">
-        <label id="label2" for="LName">Last Name:</label>
-        <input type="text" id="LName" [(ngModel)]="model.LName" name="LName" required>
+        <label for="LName">Last Name:</label>
+        <input type="text" id="LName" [(ngModel)]="model.lName" name="LName" required>
+
       </div>
 
       <div class="form-group">
@@ -18,39 +20,39 @@
       </div>
 
       <div class="form-group">
-        <label id="label4" for="Password">Password:</label>
-        <input type="password" id="Password" [(ngModel)]="model.Password" name="Password" required>
+
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" [(ngModel)]="model.password" name="Password" required>
       </div>
 
       <div class="form-group">
-        <label id="label5" for="Phone">Phone Number:</label>
-        <input type="tel" id="Phone" [(ngModel)]="model.Phone" name="Phone" required>
+        <label for="Phone">Phone Number:</label>
+        <input type="tel" id="Phone" [(ngModel)]="model.phone" name="Phone" required>
       </div>
 
-      <div class="form-group">
-        <label id="label6" for="UserType">User Type: </label>
-        <select id="UserType" [(ngModel)]="model.UserType" name="UserType" required>
-          <option value="">Select user type</option>
-          <option value="customer">Customer</option>
-        </select>
-      </div>
     </div>
     <div class="form-group">
-      <label id="label7" for="ShippingAddr">Shipping Address:</label>
-      <textarea id="ShippingAddr" [(ngModel)]="model.ShippingAddr" name="ShippingAddr"></textarea>
+      <label for="ShippingAddr">Shipping Address:</label>
+      <textarea id="ShippingAddr" [(ngModel)]="model.shippingAddr" name="ShippingAddr"></textarea>
     </div>
     <div class="form-group">
-      <label id="label8" for="BillingAddr">Billing Address:</label>
-      <textarea id="BillingAddr" [(ngModel)]="model.BillingAddr" name="BillingAddr"></textarea>
+      <label for="BillingAddr">Billing Address:</label>
+      <textarea id="BillingAddr" [(ngModel)]="model.billingAddr" name="BillingAddr"></textarea>
     </div>
     <div class="form-group">
-      <label id="label9" for="CustomerCategory">Customer Type:</label>
-      <select id="CustomerCategory" [(ngModel)]="model.CustomerCategory" name="CustomerCategory">
+      <label for="CustomerCategory">Customer Category (Regular/Premium):</label>
+      <select id="CustomerCategory" [(ngModel)]="model.customerCategory" name="CustomerCategory">
+
         <option value="">Select Customer type</option>
         <option value="Regular">Regular</option>
         <option value="Premium">Premium</option>
       </select>
     </div>
+    <ng-container *ngIf="errormessage != ''">
+      <div class="form-group" style="color: red;">
+        <label id="ShippingAddr" name="ShippingAddr"><b>Error:</b>{{errormessage}}</label>
+      </div>
+    </ng-container>
 
     <!-- <div class="form-group">
       <label for="verificationID">Upload ID (Max 1MB):</label>

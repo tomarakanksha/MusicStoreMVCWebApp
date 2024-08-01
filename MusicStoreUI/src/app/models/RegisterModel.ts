@@ -1,14 +1,13 @@
 export class RegisterModel {
   constructor (
-    public FName: string,
-    public LName: string,
+    public fName: string,
+    public lName: string,
     public emailID: string,
-    public Password: string,
-    public Phone: string,
-    public UserType: string,
-    public ShippingAddr?: string,
-    public BillingAddr?: string,
-    public CustomerCategory?: string,
+    public password: string,
+    public phone: string,
+    public shippingAddr?: string,
+    public billingAddr?: string,
+    public customerCategory?: string,
     public idUpload?: string
   ) {}
     
