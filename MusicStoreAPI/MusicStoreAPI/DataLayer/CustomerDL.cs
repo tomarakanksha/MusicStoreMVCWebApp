@@ -1,6 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
 using MusicStoreAPI.DTO;
+using System;
+using System.Data;
 using System.Data.SqlClient;
+using System.Numerics;
+using System.Reflection;
+using System.Xml.Linq;
 
 namespace MusicStoreAPI.DataLayer
 {
@@ -72,6 +77,51 @@ namespace MusicStoreAPI.DataLayer
             }
 
             return model;
+        }
+        public int RegisterCustomer(RegisterDTO model)
+        {
+            long userId = 0;
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection();
+                sqlConnection.ConnectionString = _connString;
+                sqlConnection.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandText = "prcRegisterUser";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@FName", model.FName));
+                cmd.Parameters.Add(new SqlParameter("@LName", model.LName));
+                cmd.Parameters.Add(new SqlParameter("@emailID", model.Emailid));
+                cmd.Parameters.Add(new SqlParameter("@Password", model.Password));
+                cmd.Parameters.Add(new SqlParameter("@Phone", model.Phone));
+                cmd.Parameters.Add(new SqlParameter("@UserType", "C"));
+                cmd.Parameters.Add(new SqlParameter("@Active", true));
+                cmd.Parameters.Add(new SqlParameter("@ShippingAddr", model.ShippingAddr));
+                cmd.Parameters.Add(new SqlParameter("@BillingAddr", model.BillingAddr));
+                cmd.Parameters.Add(new SqlParameter("@CustomerCategory", model.CustomerCategory));
+                cmd.Parameters.Add(new SqlParameter("@verificationID", model.IdUpload));
+                cmd.Parameters.Add(new SqlParameter("@Department", ""));
+
+                cmd.Parameters.Add("@userId", SqlDbType.Int);
+                cmd.Parameters["@userId"].Direction = ParameterDirection.Output;
+
+                cmd.ExecuteNonQuery();
+                userId = Convert.ToInt64(cmd.Parameters["@userId"].Value);
+                if (userId > 0)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch(Exception ex)
+            {
+
+            return -1; }
         }
 
     }

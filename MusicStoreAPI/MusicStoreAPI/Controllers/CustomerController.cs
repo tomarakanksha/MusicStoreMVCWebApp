@@ -26,5 +26,20 @@ namespace MusicStoreAPI.Controllers
         {
             return _customer.GetCustomerByID(id);
         }
+
+        [HttpPost("Register")]
+        public IActionResult Register([FromBody] RegisterDTO model)
+        {
+            int status = _customer.RegisterCustomer(model);
+            if ( status == 1)
+            {
+                return Ok("New User Created");
+            }
+            else if (status == 0)
+            {
+                return Ok("User already Exist");
+            }
+            return BadRequest();
+        }
     }
 }
