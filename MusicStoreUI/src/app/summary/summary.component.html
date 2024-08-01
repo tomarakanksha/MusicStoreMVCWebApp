@@ -1,0 +1,33 @@
+<div class="container">
+  <h2 class="header">Order Summary</h2>
+  
+  <div class="order-details">
+    <p><strong>Order Number:</strong> {{orderNumber}}</p>
+    <p><strong>Estimated Delivery Date:</strong> {{estimatedDeliveryDate}}</p>
+    <p><strong>Total Amount:</strong> ${{totalAmount}}</p>
+  </div>
+  
+  <div class="addresses">
+    <h3>Addresses</h3>
+    <p><strong>Billing Address:</strong> {{billingAddress}}</p>
+    <p><strong>Shipping Address:</strong> {{shippingAddress}}</p>
+  </div>
+  
+  <div class="items">
+    <h3>Items Purchased</h3>
+    <table class="table">
+      <thead class="table-header">
+        <tr>
+          <th>Album Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items" class="table-row">
+          <td>{{item.albumName}}</td>
+          <td>${{item.price}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

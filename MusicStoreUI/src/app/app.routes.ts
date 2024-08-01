@@ -10,7 +10,7 @@ import { CartComponent } from './cart-component/cart-component.component';
 import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { SignoutComponent } from './signout/signout.component';
 import { PaymentComponent } from './payment/payment.component';
-import { ShippingComponent } from './shipping/shipping.component';
+import { SummaryComponent } from './summary/summary.component';
 import { FormsModule } from '@angular/forms';
 
 
@@ -23,7 +23,7 @@ export const routes: Routes = [
     {path:'AlbumDetails', component:AlbumDetailsComponent},
     { path: 'EmployeeDashboard', component: EmployeeDashboardComponent },
     { path: 'payment', component: PaymentComponent},
-    { path: 'shipping', component: ShippingComponent},
+    { path: 'summary', component: SummaryComponent},
     {path: 'Logout', component:SignoutComponent},
 ];
 @NgModule({

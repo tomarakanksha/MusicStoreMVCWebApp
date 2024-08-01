@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Login } from '../models/login'; 
 
-const API_URL = 'http://localhost:7000';
+const API_URL = 'http://localhost:5160';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/JSON', 'Access-Control-Allow-Origin':'*', })
