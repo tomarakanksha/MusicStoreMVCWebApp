@@ -19,5 +19,6 @@ export class AuthService {
 
   login(signInData: Login): Observable<any> {
     return this.http.post<any>(API_URL+ '/Home/Authenticate', signInData, httpOptions);
+
   }
 }

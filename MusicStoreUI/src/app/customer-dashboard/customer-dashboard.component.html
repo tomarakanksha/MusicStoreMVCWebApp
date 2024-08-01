@@ -1,29 +1,30 @@
-<h2>Albums available</h2>
-<table class="table" style=" width:100%;" >
-    <thead style="background-color:cornflowerblue">
+<div class="container">
+    <h2 class="header">Albums Available</h2>
+    <table class="table">
+      <thead class="table-header">
         <tr>
-            <th style="padding:10px;">AlbumName</th>
-            <th>OutletName</th>
-            <th>Discount</th>
-            <th>PriceAfterDiscount</th>
-            <th>View Details</th>
-            <th>Add to Cart</th>
+          <th>Album Name</th>
+          <th>Outlet Name</th>
+          <th>Discount</th>
+          <th>Price After Discount</th>
+          <th>View Details</th>
+          <th>Add to Cart</th>
         </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let album of albums" style="background-color:aquamarine">
-            <td style="padding:10px;">{{album.albumName}}</td>
-            <td>{{album.outletName}}</td>
-            <td>{{album.discount}}</td>
-            <td>{{album.priceAfterDiscount}}</td>
-            <td>
-                <a href= "AlbumDetails?albumid={{album.albumId}}" class = "btn btn-primary">View </a>
-            </td>
-            <td>
-                <a href= "#Add" class = "btn btn-primary">Add </a>
-            </td>
+      </thead>
+      <tbody>
+        <tr *ngFor="let album of albums" class="table-row">
+          <td>{{album.albumName}}</td>
+          <td>{{album.outletName}}</td>
+          <td>{{album.discount}}</td>
+          <td>{{album.priceAfterDiscount}}</td>
+          <td>
+            <a href="AlbumDetails?albumid={{album.albumId}}" class="btn btn-primary">View</a>
+          </td>
+          <td>
+            <button (click) = "addToCart(album.albumId)" class="btn btn-primary" [disabled]="isInCart(album.albumId)">Add to cart</button>
+          </td>
         </tr>
-
-</tbody>
-    
-</table>
+      </tbody>
+    </table>
+  </div>
+  
