@@ -16,6 +16,7 @@ import { SummaryComponent } from './summary/summary.component';
 import { FormsModule } from '@angular/forms';
 
 
+
 export const routes: Routes = [
     {path: 'Login', component:LoginComponent},
     {path: '', component: HomeComponent},

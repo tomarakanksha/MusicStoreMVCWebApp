@@ -18,7 +18,54 @@
     justify-content: center;
   }
   input[type="text"],
-  input[type="email"],
+  input[type="email"],.container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    max-width: 500px;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; 
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%; 
+    max-width: 400px; 
+    padding: 8px;
+    margin-top: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #101b4a;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(225, 126, 5);
+}
+
   input[type="password"],
   input[type="tel"],
   select,
@@ -30,7 +77,7 @@
   
   .button-container {
     display: flex;
-    justify-content: center; /* Center the button horizontally */
+    justify-content: center; 
   }
   
   button {
@@ -45,3 +92,9 @@
     background-color: rgb(225, 126, 5);
   }
   
+  label {
+    margin-right: 10px;
+  }
+  #email_label {
+    margin-right: 35px;
+  }

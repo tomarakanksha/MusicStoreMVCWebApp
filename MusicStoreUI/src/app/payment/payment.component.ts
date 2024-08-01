@@ -24,7 +24,7 @@ export class PaymentComponent {
 
   proceedToShipping(): void {
     if (this.paymentMode) {
-      this.router.navigate(['/shipping']);
+      this.router.navigate(['/summary']); //post with paymentMode, orderId
     } else {
       alert('Please select a payment mode.');
     }

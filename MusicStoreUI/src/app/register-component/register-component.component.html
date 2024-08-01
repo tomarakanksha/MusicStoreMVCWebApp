@@ -3,6 +3,7 @@
   <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <div class="form-column">
       <div class="form-group">
+
         <label for="FName">First Name:</label>
         <input type="text" id="FName" [(ngModel)]="model.fName" name="FName" required>
       </div>
@@ -10,14 +11,16 @@
       <div class="form-group">
         <label for="LName">Last Name:</label>
         <input type="text" id="LName" [(ngModel)]="model.lName" name="LName" required>
+
       </div>
 
       <div class="form-group">
-        <label for="emailID">Email:</label>
+        <label id="label3" for="emailID">Email:</label>
         <input type="email" id="emailID" [(ngModel)]="model.emailID" name="emailID" required>
       </div>
 
       <div class="form-group">
+
         <label for="Password">Password:</label>
         <input type="password" id="Password" [(ngModel)]="model.password" name="Password" required>
       </div>
@@ -39,6 +42,7 @@
     <div class="form-group">
       <label for="CustomerCategory">Customer Category (Regular/Premium):</label>
       <select id="CustomerCategory" [(ngModel)]="model.customerCategory" name="CustomerCategory">
+
         <option value="">Select Customer type</option>
         <option value="Regular">Regular</option>
         <option value="Premium">Premium</option>

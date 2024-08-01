@@ -16,7 +16,7 @@ namespace MusicStoreAPI.Controllers
         }
 
         [HttpGet("GetCartItems")]
-        public IEnumerable<CartDTO> GetCartItems([FromHeader] int userId)
+        public IEnumerable<CartDTO> GetCartItems([FromQuery] int userId)
         {
             return _cartItems.getCartItems(userId);
         }
