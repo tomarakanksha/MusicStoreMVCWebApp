@@ -19,15 +19,15 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
-    // this.cartService.getCartItems().subscribe(items => {
-    //   this.cartItems = items;
-    //   this.calculateTotalPrice();
-    // });
-    this.cartItems = [
-      { albumName: 'Lover', price: 15.99, quantity: 1 },
-      { albumName: 'Dangerous Woman', price: 12.49, quantity: 2 },
-      { albumName: 'Folklore', price: 8.99, quantity: 3 }
-    ];
+    this.cartService.getCartItems().subscribe(items => {
+      this.cartItems = items;
+      this.calculateTotalPrice();
+    });
+    // this.cartItems = [
+    //   { albumName: 'Lover', price: 15.99, quantity: 1 },
+    //   { albumName: 'Dangerous Woman', price: 12.49, quantity: 2 },
+    //   { albumName: 'Folklore', price: 8.99, quantity: 3 }
+    // ];
     this.calculateTotalPrice();
   }
 

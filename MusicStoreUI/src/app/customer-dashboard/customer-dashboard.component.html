@@ -21,7 +21,7 @@
             <a href="AlbumDetails?albumid={{album.albumId}}" class="btn btn-primary">View</a>
           </td>
           <td>
-            <a href="#Add" class="btn btn-primary">Add</a>
+            <button (click) = "addToCart(album.albumId)" class="btn btn-primary" [disabled]="isInCart(album.albumId)">Add to cart</button>
           </td>
         </tr>
       </tbody>

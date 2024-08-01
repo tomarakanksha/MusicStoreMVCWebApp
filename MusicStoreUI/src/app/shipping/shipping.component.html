@@ -1,19 +1,7 @@
-<div class="shipping-container">
-    <h2>Shipping Details</h2>
-    <!-- <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="billingAddress">Billing Address</label>
-        <input id="billingAddress" type="text" [(ngModel)]="shippingForm.billingAddress" name="billingAddress">
-      </div>
-      <div class="form-group">
-        <label for="shippingAddress">Shipping Address</label>
-        <input id="shippingAddress" type="text" [(ngModel)]="shippingForm.shippingAddress" name="shippingAddress">
-      </div>
-      <div class="form-group">
-        <label>Estimated Delivery Date</label>
-        <p>{{ estimatedDeliveryDate | date }}</p>
-      </div>
-      <button type="submit">Submit</button>
-    </form> -->
+<div class="container">
+  <h2 class="header">Shipping Details</h2>
+  <div class="details">
+    <p><strong>Order Number:</strong> {{ orderNumber }}</p>
+    <p><strong>Estimated Delivery Date:</strong> {{ estimatedDeliveryDate }}</p>
   </div>
-  
+</div>

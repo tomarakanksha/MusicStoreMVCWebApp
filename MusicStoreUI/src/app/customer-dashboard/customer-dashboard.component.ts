@@ -2,16 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { Album } from '../models/album';
 import { getAlbums } from '../service/album.data.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-customer-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './customer-dashboard.component.html',
   styleUrl: './customer-dashboard.component.css'
 })
+
 export class CustomerDashboardComponent implements OnInit{
   albums:Album[] = [];
+  cart: Set<number> = new Set();
+
   constructor(
     private albumDataService:getAlbums){
       
@@ -36,6 +40,14 @@ export class CustomerDashboardComponent implements OnInit{
         error: err => {
           console.error('Error fetching albums:', err);
         }
-      })
+      });
+    }
+
+    addToCart(albumId: number): void {
+      this.cart.add(albumId);
+    }
+
+    isInCart(albumId: number): boolean {
+      return this.cart.has(albumId);
     }
 }

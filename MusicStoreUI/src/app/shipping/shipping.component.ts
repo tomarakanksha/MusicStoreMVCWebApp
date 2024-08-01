@@ -1,24 +1,20 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { ShippingService } from '../service/shipping.service';
 
 @Component({
   selector: 'app-shipping',
-  imports: [FormsModule],
-  standalone: true,
   templateUrl: './shipping.component.html',
-  styleUrls: ['./shipping.component.css']
+  styleUrls: ['./shipping.component.css'],
 })
-export class ShippingComponent {
-//   ship_model = new 
-//   estimatedDeliveryDate: Date;
+export class ShippingComponent implements OnInit {
+  orderNumber!: string;
+  estimatedDeliveryDate!: string;
 
-//   constructor() {
-//     const currentDate = new Date();
-//     this.estimatedDeliveryDate = new Date(currentDate.setDate(currentDate.getDate() + 10));
-//   }
+  constructor(private shippingService: ShippingService) {}
 
-//   onSubmit() {
-//     console.log(this.shippingForm);
-
-//   }
+  ngOnInit(): void {
+    const orderDetails = this.shippingService.getOrderDetails();
+    this.orderNumber = orderDetails.orderNumber;
+    this.estimatedDeliveryDate = orderDetails.estimatedDeliveryDate;
+  }
 }
