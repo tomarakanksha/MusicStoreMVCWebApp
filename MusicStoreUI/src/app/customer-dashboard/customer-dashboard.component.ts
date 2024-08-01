@@ -44,7 +44,7 @@ export class CustomerDashboardComponent implements OnInit{
     }
 
     addToCart(albumId: number): void {
-      this.cart.add(albumId);
+      this.cart.add(albumId); //post request with albumid, outlet id, userid. response ok, button disabled.
     }
 
     isInCart(albumId: number): boolean {
