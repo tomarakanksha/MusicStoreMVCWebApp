@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { RegisterModel } from '../models/RegisterModel';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-register-component',
@@ -12,6 +13,7 @@ import { RegisterModel } from '../models/RegisterModel';
   styleUrl: './register-component.component.css'
 })
 export class RegisterComponent {
+  errormessage : string = "";
   model = new RegisterModel(
     '',
     '',
@@ -26,9 +28,21 @@ export class RegisterComponent {
   //     this.model.verificationId = event.target.files[0];
   //   }
   // }
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
   onSubmit(): void {
-    console.log('Registration data:', this.model);
-    this.router.navigate(['/customer-dashboard']);
-  }
+    
+    var response = this.authService.register(this.model);
+        if (response.status == 200 && response.responseText == "New User Created" )
+        {
+          this.errormessage = "";
+          this.router.navigate(['/Login']);
+        }
+        else if (response.status == 200 && response.responseText == "User already Exist"){
+          this.errormessage = "This emailId is already registered. Please try another emailId or login to continue."
+        }
+        else{
+          this.errormessage = "Something went wrong."
+        }
+      }
+ 
 }
