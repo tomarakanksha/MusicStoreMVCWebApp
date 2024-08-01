@@ -1,111 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart - Sa Re Ga Ma Music Store</title>
-    <!-- <link rel="stylesheet" href="~/css/site.css"> -->
-    <!-- <link rel="stylesheet" href="./styles.css"> -->
-</head>
-<body>
-    <!-- <header>
-        <nav>
-            <div class="logo">
-                <a href="/">My Unique Music Store</a>
-            </div>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/Privacy">Privacy</a></li>
-                <li><a href="/Register">Register</a></li>
-                <li><a href="/Login">Login</a></li>
-                <li><a href="/Cart">Cart</a></li>
-            </ul>
-        </nav>
-    </header> -->
-    <main>
-        <h1>Shopping Cart</h1>
-        <div class="cart-container">
-            <div class="cart-item" data-price="12.99">
-                <div class="cart-item-info"> 
-                    <div class="album-details">
-                        <h3>Lover</h3>
-                        <p>Taylor Swift</p>
-                        <p>$12.99</p>
-                    </div>
-                </div>
-                <div class="cart-item-quantity" class="quantity-input">
-                    <input type="number" value="1" min="1">
-                </div>
-                <div class="cart-item-remove">
-                    <button>Remove</button>
-                </div>
-            </div>
-            <div class="cart-item" data-price="15.99">
-                <div class="cart-item-info">
-                    <div class="album-details">
-                        <h3>Folklore</h3>
-                        <p>Taylor Swift</p>
-                        <p>$15.99</p>
-                    </div>
-                </div>
-                <div class="cart-item-quantity">
-                    <input type="number" value="1" min="1" class="quantity-input">
-                </div>
-                <div class="cart-item-remove">
-                    <button>Remove</button>
-                </div>
-            </div>
-            <div class="cart-item" data-price="12.99">
-                <div class="cart-item-info">
-                    <div class="album-details">
-                        <h3>Dangerous Woman</h3>
-                        <p>Ariana Grande</p>
-                        <p>$12.99</p>
-                    </div>
-                </div>
-                <div class="cart-item-quantity">
-                    <input type="number" value="1" min="1" class="quantity-input">
-                </div>
-                <div class="cart-item-remove">
-                    <button>Remove</button>
-                </div>
-            </div>
-        </div>
-        <div class="cart-summary">
-            <h3>Order Summary</h3>
-            <p>Total Items: <span id="total-items">3</span></p>
-            <p>Total Price: <span id="total-price">$41.97</span></p>
-            <button>Checkout</button>
-        </div>
-    </main>
-    <!-- <footer>
-        © 2024 - Sa Re Ga Ma Music Store
-    </footer> -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const quantityInputs = document.querySelectorAll('.quantity-input');
-            quantityInputs.forEach(input => {
-                input.addEventListener('change', updateCart);
-            });
-
-            function updateCart() {
-                let totalItems = 0;
-                let totalPrice = 0.00;
-
-                const cartItems = document.querySelectorAll('.cart-item');
-                cartItems.forEach(item => {
-                    const quantity = parseInt(item.querySelector('.quantity-input').value);
-                    const price = parseFloat(item.dataset.price);
-
-                    totalItems += quantity;
-                    totalPrice += quantity * price;
-                });
-
-                document.getElementById('total-items').textContent = totalItems;
-                document.getElementById('total-price').textContent = totalPrice.toFixed(2);
-            }
-        });
-    </script>
-</body>
-</html>
-
+<div class="cart-container">
+  <h2>Your Cart</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Album Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems">
+        <td>{{ item.albumName }}</td>
+        <td>{{ item.price | currency }}</td>
+        <td>
+          <button (click)="decreaseQuantity(item)">-</button>
+          {{ item.quantity }}
+          <button (click)="increaseQuantity(item)">+</button>
+        </td>
+        <td>{{ item.price * item.quantity | currency }}</td>
+        <td>
+          <button class="remove-button" (click)="removeItem(item)">Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="total-price">
+    <h3>Total: {{ totalPrice | currency }}</h3>
+  </div>
+  <button class="checkout-button" (click)="checkout()">Checkout</button>
+</div>

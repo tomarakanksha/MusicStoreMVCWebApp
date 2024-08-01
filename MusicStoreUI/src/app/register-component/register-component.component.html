@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Register New User</h2>
+  <h2 class = "heading">Register New User</h2>
   <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <div class="form-column">
       <div class="form-group">
@@ -56,7 +56,8 @@
       <label for="verificationID">Upload ID (Max 1MB):</label>
       <input type="file" id="verificationID" (change)="onFileChange($event)" accept=".jpg,.jpeg,.png,.pdf">
     </div> -->
-
-    <button type="submit">Register</button>
+    <div class="button-container">
+      <button type="submit">Register</button>
+    </div>
   </form>
 </div>

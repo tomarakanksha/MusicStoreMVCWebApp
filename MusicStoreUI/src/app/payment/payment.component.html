@@ -1,0 +1,35 @@
+<div class="payment-container">
+  <h2>Payment</h2>
+  <div class="payment-options">
+    <label class="payment-option">
+      <input type="radio" name="paymentMode" value="Online" [(ngModel)]="paymentMode">
+      <span>Online</span>
+    </label>
+    <label class="payment-option">
+      <input type="radio" name="paymentMode" value="Cash on Delivery" [(ngModel)]="paymentMode">
+      <span>Cash on Delivery</span>
+    </label>
+  </div>
+
+  <div *ngIf="paymentMode === 'Online'" class="card-details">
+    <h3>Enter Card Details</h3>
+    <label>
+      Card Number:
+      <input type="text" [(ngModel)]="cardDetails.cardNumber" placeholder="Card Number">
+    </label>
+    <label>
+      Card Name:
+      <input type="text" [(ngModel)]="cardDetails.cardName" placeholder="Card Name">
+    </label>
+    <label>
+      Expiration Date:
+      <input type="text" [(ngModel)]="cardDetails.expirationDate" placeholder="MM/YY">
+    </label>
+    <label>
+      CVV:
+      <input type="text" [(ngModel)]="cardDetails.cvv" placeholder="CVV">
+    </label>
+  </div>
+
+  <button (click)="proceedToShipping()">Complete Order</button>
+</div>

@@ -11,6 +11,9 @@ import { RegisterComponent } from './register-component/register-component.compo
 import { CartComponent } from './cart-component/cart-component.component';
 import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { SignoutComponent } from './signout/signout.component';
+import { PaymentComponent } from './payment/payment.component';
+import { SummaryComponent } from './summary/summary.component';
+import { FormsModule } from '@angular/forms';
 
 
 export const routes: Routes = [
@@ -21,11 +24,13 @@ export const routes: Routes = [
     { path: 'CustomerDashboard', component: CustomerDashboardComponent },
     {path:'AlbumDetails', component:AlbumDetailsComponent},
     { path: 'EmployeeDashboard', component: EmployeeDashboardComponent },
+    { path: 'payment', component: PaymentComponent},
+    { path: 'summary', component: SummaryComponent},
     {path: 'Logout', component:SignoutComponent},
     {path: 'Profile', component:ProfileComponent},
 ];
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes), FormsModule],
     exports: [RouterModule]
   })
   export class AppRoutingModule { }
