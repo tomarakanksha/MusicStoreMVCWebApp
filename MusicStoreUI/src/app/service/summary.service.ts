@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class ShippingService {
+export class SummaryService {
   getOrderDetails() {
     return {
       orderNumber: '123456789',
