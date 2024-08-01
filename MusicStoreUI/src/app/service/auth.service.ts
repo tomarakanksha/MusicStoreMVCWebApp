@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Login } from '../models/login'; 
 
-const API_URL = 'http://localhost:5160';
+const API_URL = 'http://localhost:7000';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/JSON', 'Access-Control-Allow-Origin':'*', })
@@ -19,5 +19,6 @@ export class AuthService {
 
   login(signInData: Login): Observable<any> {
     return this.http.post<any>(API_URL+ '/Home/Authenticate', signInData, httpOptions);
+
   }
 }
