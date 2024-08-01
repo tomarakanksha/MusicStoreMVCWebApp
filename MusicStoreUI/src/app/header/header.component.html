@@ -1,0 +1,23 @@
+<!-- header.component.html -->
+<div class="topnav">
+    <ng-container *ngIf="userType === 'E'">
+      <a class="active" href="/EmployeeDashboard">Dashboard</a>
+      <a href="/inventory">Manage Inventory</a>
+      <a href="/Profile">Profile</a>
+    </ng-container>
+    
+    <ng-container *ngIf="userType === 'C'">
+      <a class="active" href="/CustomerDashboard">Dashboard</a>
+      <a href="/OrderDetails">Orders</a>
+      <a href="/ViewCart">Cart</a>
+      <a href="/Profile">Profile</a>
+      <a href="/Logout">Logout</a>
+    </ng-container>
+    
+    <ng-container *ngIf="!userType">
+      <a class="active" href="/CustomerDashboard">Dashboard</a>
+      <a href="/Login">Login</a>
+      <a href="/register">Register</a>
+    </ng-container>
+  </div>
+  

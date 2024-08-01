@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { Component } from '@angular/core';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { EmployeeDashboardComponent } from './employee-dashboard/employee-dashboard.component';
+
+import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home-component/home-component.component';
 import { RegisterComponent } from './register-component/register-component.component';
 import { CartComponent } from './cart-component/cart-component.component';
@@ -25,6 +27,7 @@ export const routes: Routes = [
     { path: 'payment', component: PaymentComponent},
     { path: 'summary', component: SummaryComponent},
     {path: 'Logout', component:SignoutComponent},
+    {path: 'Profile', component:ProfileComponent},
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes), FormsModule],

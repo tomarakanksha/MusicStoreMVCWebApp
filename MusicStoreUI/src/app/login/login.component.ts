@@ -28,7 +28,7 @@ export class LoginComponent {
         if (response && response.userId && response.userType && response.userId !== 0) {
           sessionStorage.setItem('userId', response.userId);
           sessionStorage.setItem('userType', response.userType);
-
+         
           if (response.userType === 'E') {
             this.router.navigate(['/EmployeeDashboard']);
           } else {
