@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signout',
@@ -8,8 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './signout.component.css'
 })
 export class SignoutComponent {
-  constructor(){
+  constructor(private router: Router){
     sessionStorage.removeItem('userType');
     sessionStorage.removeItem('userId');
+    this.router.navigate(['/']);
   }
 }
