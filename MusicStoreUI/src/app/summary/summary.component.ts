@@ -17,12 +17,12 @@ export class SummaryComponent implements OnInit {
   constructor(private summaryService: SummaryService) {}
 
   ngOnInit(): void {
-    const summary = this.summaryService.getOrderDetails();
-    this.orderNumber = summary.orderNumber;
-    this.estimatedDeliveryDate = summary.estimatedDeliveryDate;
-    this.totalAmount = summary.totalAmount;
-    this.billingAddress = summary.billingAddress;
-    this.shippingAddress = summary.shippingAddress;
-    this.items = summary.items;
+    // const summary = this.summaryService.getOrderDetails();
+    // this.orderNumber = this.summary.orderNumber;
+    // this.estimatedDeliveryDate = this.summary.calculateEstimatedDeliveryDate();
+    // this.totalAmount = this.summary.totalAmount;
+    // this.billingAddress = this.summary.billingAddress;
+    // this.shippingAddress = this.summary.shippingAddress;
+    // this.items = this.summary.items;
   }
 }

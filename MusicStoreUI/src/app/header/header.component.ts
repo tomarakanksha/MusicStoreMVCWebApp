@@ -21,3 +21,4 @@ export class HeaderComponent implements OnInit {
     this.userType = sessionStorage.getItem('userType');
   }
 }
+

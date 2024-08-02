@@ -17,11 +17,18 @@
 .form-column {
   display: flex;
   flex-direction: column;
-  gap: 15px; 
+  gap: 10px; 
 }
 
 .form-group {
-  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+label {
+  width: 150px; /* Fixed width for labels */
+  color: #101b4a;
 }
 
 input[type="text"],
@@ -30,11 +37,10 @@ input[type="password"],
 input[type="tel"],
 select,
 textarea {
-  width: 100%; 
-  max-width: 400px; 
+  flex-grow: 1;
   padding: 8px;
-  margin-top: 5px;
   box-sizing: border-box;
+  margin: 10px;
 }
 
 textarea {
@@ -53,36 +59,9 @@ button {
   border: none;
   cursor: pointer;
   border-radius: 4px;
+  margin-top: 10px;
 }
 
 button:hover {
   background-color: rgb(225, 126, 5);
-}
-
-#label1 {
-  margin-right: 50px;
-}
-#label2 {
-  margin-right: 52px;
-}
-#label3 {
-  margin-right: 83px;
-}
-#label4 {
-  margin-right: 60px;
-}
-#label5 {
-  margin-right: 25px;
-}
-#label6 {
-  margin-right: 50px;
-}
-#label7 {
-  margin-right: 8px;
-}
-#label8 {
-  margin-right: 22px;
-}
-#label9 {
-  margin-right: 25px;
 }

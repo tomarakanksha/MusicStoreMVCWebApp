@@ -3,6 +3,7 @@ import { Album } from '../models/album';
 import { getAlbums } from '../service/album.data.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-customer-dashboard',
@@ -15,9 +16,13 @@ import { RouterLink } from '@angular/router';
 export class CustomerDashboardComponent implements OnInit{
   albums:Album[] = [];
   cart: Set<number> = new Set();
+  apiUrl: string = 'http://localhost:5160';
+  userId: string | null = sessionStorage.getItem("userId");
 
   constructor(
-    private albumDataService:getAlbums){
+    private albumDataService:getAlbums,
+    private http: HttpClient
+  ){
       
     }
     
@@ -43,9 +48,24 @@ export class CustomerDashboardComponent implements OnInit{
       });
     }
 
-    addToCart(albumId: number): void {
-      this.cart.add(albumId); //post request with albumid, outlet id, userid. response ok, button disabled.
+    addToCart(albumId: number, outletID: number): void {
+      if (this.userId) {
+        const body = {
+          albumId: albumId,
+          outletId: outletID,
+          userId: this.userId
+        };
+        this.http.post(`${this.apiUrl}/cart/addToCart`, body).subscribe({
+          next: () => {
+            console.log('Item added to cart successfully');
+            this.cart.add(albumId);
+          },
+          error: err => {
+            console.error('Error adding item to cart:', err);
+          }
+        });
     }
+  }
 
     isInCart(albumId: number): boolean {
       return this.cart.has(albumId);
