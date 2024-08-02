@@ -1,12 +1,12 @@
 export class Employee {
     constructor(
-        public EmployeeId:number,
-        public FName :string,
-        public LName :string,
-        public EmailId :string,
-        public Department :string,
-        public DateOfJoining :string,
-        public Phone :string,
-        public Password :string,
+        public employeeId:number,
+        public fName :string,
+        public lName :string,
+        public emailId :string,
+        public department :string,
+        public dateOfJoining :string,
+        public phone :string,
+        public password :string,
     ){}
 }

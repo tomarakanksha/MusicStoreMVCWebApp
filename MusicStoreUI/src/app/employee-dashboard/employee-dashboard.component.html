@@ -1,1 +1,29 @@
-<p>employee-dashboard works!</p>
+
+<div class="container">
+    <h2 class="header">Employee Dashboard</h2>
+  
+    <div class="albums-list">
+      <h3>Albums in Inventory</h3>
+      <table class="table">
+        <thead class="table-header">
+          <tr>
+            <th>Album Name</th>
+            <th>Outlet Name</th>
+            <th>Discount</th>
+            <th>Price After Discount</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let album of albums" class="table-row">
+            <td>{{album.albumName}}</td>
+            <td>{{album.outletName}}</td>
+            <td>{{album.discount}}</td>
+            <td>${{album.priceAfterDiscount}}</td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
