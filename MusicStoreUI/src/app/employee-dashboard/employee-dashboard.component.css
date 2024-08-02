@@ -1,0 +1,32 @@
+
+.container {
+    padding: 20px;
+  }
+  
+  .header {
+    text-align: center;
+    color: #101b4a;
+  }
+  
+  .table {
+    
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-header th {
+    align-items: center;
+    background-color: #101b4a;
+    color: white;
+  }
+  .table-header th, .table-row td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .add-album, .add-song {
+    margin-top: 20px;
+  }
+  
+  

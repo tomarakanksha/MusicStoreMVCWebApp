@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-customer-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink, ],
+  imports: [CommonModule, RouterLink],
   templateUrl: './customer-dashboard.component.html',
   styleUrl: './customer-dashboard.component.css'
 })

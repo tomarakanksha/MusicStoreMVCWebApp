@@ -13,6 +13,7 @@ import { SignoutComponent } from './signout/signout.component';
 import { PaymentComponent } from './payment/payment.component';
 import { SummaryComponent } from './summary/summary.component';
 import { FormsModule } from '@angular/forms';
+import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 
 
 
@@ -28,6 +29,7 @@ export const routes: Routes = [
     { path: 'summary', component: SummaryComponent},
     {path: 'Logout', component:SignoutComponent},
     {path: 'profile', component:ProfileComponent},
+    {path: 'EmployeeProfile', component:EmployeeProfileComponent}
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes), FormsModule],
