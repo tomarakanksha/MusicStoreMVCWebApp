@@ -23,6 +23,7 @@ namespace MusicStoreAPI
             builder.Services.AddScoped<EmployeeDL>();
             builder.Services.AddScoped<UserClassDL>();
             builder.Services.AddScoped<CartDL>();
+            builder.Services.AddScoped<OrderDL>();
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("MyCorsPolicy", builder =>
