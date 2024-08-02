@@ -3,6 +3,7 @@ import { getAlbums } from '../service/album.data.service';
 import { ActivatedRoute, Route } from '@angular/router';
 import { Song } from '../models/song';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-album-details',
@@ -16,7 +17,13 @@ export class AlbumDetailsComponent {
   albumId:number= 0;
   albumName:string= '';
   constructor(
-    private albumDataService:getAlbums, private route:ActivatedRoute){
+    private albumDataService:getAlbums, private route:ActivatedRoute, userService:UserService){
+      if (typeof window !== 'undefined' && window.sessionStorage) {
+        if( sessionStorage.getItem('userType')!== "C" && sessionStorage.getItem('userType')!== "E"){
+          window.location.href= "/Login";
+        }
+      }
+
       this.route.queryParams.subscribe(params => {
         this.albumId = params['albumid'];});
         this.GetSongsByAlbumId();

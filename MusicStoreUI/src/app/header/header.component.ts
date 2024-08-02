@@ -14,11 +14,12 @@ export class HeaderComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-      this.getUserType();
+    this.getUserType();
   }
 
   getUserType() {
-    this.userType = sessionStorage.getItem('userType');
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      this.userType = sessionStorage.getItem('userType');
+    }
   }
 }
-

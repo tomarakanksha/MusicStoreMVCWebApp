@@ -17,7 +17,7 @@ export class CartComponent implements OnInit {
   //cartItems: CartItem[] = [];
   cartItems: any[] = [];
   totalPrice: number = 0;
-  userId: string | null = sessionStorage.getItem("userId");
+  userId: string | null = '';
   orderId: number = 0;
   apiUrl: string = 'http://localhost:5160';
   
@@ -26,7 +26,14 @@ export class CartComponent implements OnInit {
     private cartService: CartService, 
     private router: Router, 
     private http: HttpClient
-  ) { }
+  ) {
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      if( sessionStorage.getItem('userType')!== "C" && sessionStorage.getItem('userType')!== "E"){
+        window.location.href= "/";
+      }
+      this.userId= sessionStorage.getItem("userId")
+    }
+   }
 
   ngOnInit(): void {
     this.cartService.getCartItems(this.userId).subscribe(items => {

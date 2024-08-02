@@ -17,13 +17,18 @@ export class CustomerDashboardComponent implements OnInit{
   albums:Album[] = [];
   cart: Set<number> = new Set();
   apiUrl: string = 'http://localhost:5160';
-  userId: string | null = sessionStorage.getItem("userId");
+  userId: string | null = '';
 
   constructor(
     private albumDataService:getAlbums,
     private http: HttpClient
   ){
-      
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      if( sessionStorage.getItem('userType')!== "C" ){
+        window.location.href= "/";
+      }
+      this.userId= sessionStorage.getItem("userId")
+    }
     }
     
     public ngOnInit(): void {

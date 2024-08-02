@@ -15,6 +15,9 @@ export class ProfileComponent implements OnInit {
   customer: Customer = new Customer(0, '', '', '', '', '', '', '', '');
   
   constructor(private userDetailsService: UserDetailsService){
+    if( sessionStorage.getItem('userType')!== "C"){
+      window.location.href= "/";
+    }
   }
   
   ngOnInit(): void {

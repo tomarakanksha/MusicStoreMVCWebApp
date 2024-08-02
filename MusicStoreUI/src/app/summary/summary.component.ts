@@ -22,7 +22,13 @@ export class SummaryComponent implements OnInit {
   constructor(
     private summaryService: SummaryService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      if( sessionStorage.getItem('userType')!== "C" && sessionStorage.getItem('userType')!== "E"){
+        window.location.href= "/";
+      }
+    }
+  }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {

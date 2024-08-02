@@ -27,6 +27,11 @@ export class PaymentComponent {
   constructor(private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router) {
+      if (typeof window !== 'undefined' && window.sessionStorage) {
+        if( sessionStorage.getItem('userType')!== "C" ){
+          window.location.href= "/";
+        }
+      }
   }
 
   ngOnInit(): void {

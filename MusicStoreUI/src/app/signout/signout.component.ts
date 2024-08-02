@@ -10,8 +10,11 @@ import { Router } from '@angular/router';
 })
 export class SignoutComponent {
   constructor(private router: Router){
-    sessionStorage.removeItem('userType');
-    sessionStorage.removeItem('userId');
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+        sessionStorage.removeItem('userType');
+        sessionStorage.removeItem('userId');
+    }
+    
     window.location.href = '/';
   }
 }
