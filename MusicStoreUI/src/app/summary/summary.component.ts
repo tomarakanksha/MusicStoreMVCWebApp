@@ -1,28 +1,58 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { SummaryService } from '../service/summary.service';
+import { OrderDetail } from '../models/OrderDetail';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-summary',
+  standalone: true,
+  imports:[CommonModule],
   templateUrl: './summary.component.html',
   styleUrls: ['./summary.component.css'],
 })
 export class SummaryComponent implements OnInit {
-  orderNumber!: string;
-  estimatedDeliveryDate!: string;
-  totalAmount!: number;
-  billingAddress!: string;
-  shippingAddress!: string;
+  orderNumber: string = '';
+  estimatedDeliveryDate: string = '';
+  totalAmount: number = 0;
+  billingAddress: string = '';
+  shippingAddress: string = '';
   items: { albumName: string, price: number }[] = [];
 
-  constructor(private summaryService: SummaryService) {}
+  constructor(
+    private summaryService: SummaryService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    // const summary = this.summaryService.getOrderDetails();
-    // this.orderNumber = this.summary.orderNumber;
-    // this.estimatedDeliveryDate = this.summary.calculateEstimatedDeliveryDate();
-    // this.totalAmount = this.summary.totalAmount;
-    // this.billingAddress = this.summary.billingAddress;
-    // this.shippingAddress = this.summary.shippingAddress;
-    // this.items = this.summary.items;
+    this.route.queryParams.subscribe(params => {
+      const orderId = +params['orderId']; // Convert to number
+      if (orderId) {
+        this.loadOrderSummary(orderId);
+      }
+    });
+  }
+
+  loadOrderSummary(orderId: number): void {
+    this.summaryService.getOrderSummary(orderId).subscribe({
+      next: (details: OrderDetail[]) => {
+        if (details.length > 0) {
+          const firstItem = details[0];
+          this.orderNumber = firstItem.orderNum;
+          this.billingAddress = firstItem.billingAddr;
+          this.shippingAddress = firstItem.shippingAddr;
+          this.items = details.map(item => ({
+            albumName: item.albumName,
+            price: item.price
+          }));
+          this.totalAmount = this.items.reduce((sum, item) => sum + item.price, 0);
+          this.estimatedDeliveryDate = this.summaryService.calculateEstimatedDeliveryDate();
+        }
+      },
+      error: (error) => {
+        console.error('Error fetching order summary:', error);
+        // Handle error (e.g., show error message to user)
+      }
+    });
   }
 }

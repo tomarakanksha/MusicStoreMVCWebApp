@@ -30,10 +30,11 @@ export class LoginComponent {
           sessionStorage.setItem('userType', response.userType);
          
           if (response.userType === 'E') {
-            this.router.navigate(['/EmployeeDashboard']);
+            window.location.href = '/EmployeeDashboard';
           } else {
-            this.router.navigate(['/CustomerDashboard']);
+            window.location.href = '/CustomerDashboard';
           }
+          
         } else {
           console.error('Invalid login.', response);
         }

@@ -53,7 +53,8 @@ export class CustomerDashboardComponent implements OnInit{
         const body = {
           albumId: albumId,
           outletId: outletID,
-          userId: this.userId
+          userId: this.userId,
+          quantity: 1
         };
         this.http.post(`${this.apiUrl}/cart/addToCart`, body).subscribe({
           next: () => {
@@ -62,6 +63,7 @@ export class CustomerDashboardComponent implements OnInit{
           },
           error: err => {
             console.error('Error adding item to cart:', err);
+            this.cart.add(albumId);
           }
         });
     }
