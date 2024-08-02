@@ -49,7 +49,61 @@ namespace MusicStoreAPI.DataLayer
             {
                 return null;
             }
-}
+        }
+
+        public int AddItem(AddToCart model)
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection();
+                sqlConnection.ConnectionString = _connString;
+                sqlConnection.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandText = "INSERT INTO [dbo].[Cart] ([CustomerID],[AlbumID],[OutletID],[Quantity]) Select(Select CustomerID from dbo.Customer where userid =@userid),@albumid,@outletid,@quantity";
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add(new SqlParameter("@userid", model.UserId));
+                cmd.Parameters.Add(new SqlParameter("@albumid", model.AlbumId));
+                cmd.Parameters.Add(new SqlParameter("@outletid", model.OutletId));
+                cmd.Parameters.Add(new SqlParameter("@quantity", model.Quantity));
+
+                cmd.ExecuteReader();
+                return 0;
+            }
+            catch (Exception ex)
+            {
+
+                return -1;
+            }
+        }
+
+        public int RemoveItem(long cartId)
+        {
+            try
+            {
+                SqlConnection sqlConnection = new SqlConnection();
+                sqlConnection.ConnectionString = _connString;
+                sqlConnection.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = sqlConnection;
+                cmd.CommandText = "DELETE FROM [dbo].[Cart] WHERE cartId = @cartid";
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add(new SqlParameter("@cartid", cartId));
+
+                if(cmd.ExecuteReader().HasRows)
+                {
+                    return 0;
+                }
+                return -1;
+            }
+            catch (Exception ex)
+            {
+
+                return -1;
+            }
+        }
 
     }
 }
