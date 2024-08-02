@@ -1,31 +1,40 @@
-import { Component } from '@angular/core';
-import { routes } from '../app.routes';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserDetailsService } from '../service/UserDetails.service';
+import { Customer } from '../models/customer';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-profile',
+  imports: [CommonModule],
   standalone: true,
-  imports: [],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
-export class ProfileComponent { 
-  constructor(private router: Router){  
-    
+export class ProfileComponent implements OnInit { 
+  customer: Customer = new Customer(0, '', '', '', '', '', '', '', '');
+  
+  constructor(private userDetailsService: UserDetailsService){
   }
-  getData(): void{
-    if (sessionStorage.getItem("userType") != undefined){
-      if(sessionStorage.getItem('userType') == 'C'){
-        
-        
-      }
-      else if(sessionStorage.getItem('userType') == 'E'){
+  
+  ngOnInit(): void {
+    this.fetchCustomerDetails();
+  }
 
-      }
-      else{
-        this.router.navigate(['/']);
-      }
+  fetchCustomerDetails(): void {
+    const userId = sessionStorage.getItem('userId');
+    console.log(userId);
+    if (userId) {
+      this.userDetailsService.getCustomerDetails(parseInt(userId)).subscribe({
+        next: (data: Customer) => {
+          this.customer = data;
+        },
+        error: (err) => {
+          console.error('Error fetching customer details:', err);
+        }
+      });
+    } else {
+      console.error('No user ID found in session storage');
     }
   }
-
 }
