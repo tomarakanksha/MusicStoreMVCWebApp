@@ -3,6 +3,7 @@ import { CartService, CartItem } from '../service/cart.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { CartDTO, OrderItemsDTO } from '../models/Order';
 
 @Component({
   selector: 'app-cart',
@@ -19,6 +20,7 @@ export class CartComponent implements OnInit {
   userId: string | null = sessionStorage.getItem("userId");
   orderId: number = 0;
   apiUrl: string = 'http://localhost:5160';
+  
 
   constructor(
     private cartService: CartService, 
@@ -48,11 +50,9 @@ export class CartComponent implements OnInit {
   removeItem(item: any): void {
     if(this.userId) {
       this.cartItems = this.cartItems.filter(cartItem => cartItem !== item);
-      const body = {
-        userId: this.userId,
-        cartId: item.cartId
-      };
-      this.http.post(`${this.apiUrl}/cart/removeItem`, body).subscribe({
+      const body = { cartId: item.cartID };
+
+      this.http.post(`${this.apiUrl}/Cart/RemoveItem`, body).subscribe({
         next: () => {
           console.log('Item removed successfully');
           this.calculateTotalPrice();
@@ -68,15 +68,15 @@ export class CartComponent implements OnInit {
   calculateTotalPrice(): void {
     this.totalPrice = this.cartItems.reduce((total, item) => total + item.priceAfterDiscount * item.quantity, 0);
   }
-
+  
   checkout(): void {
     if (this.userId) {
-      const body = {
+      const orderItems: OrderItemsDTO = {
         userId: this.userId,
-        cartItems: this.cartItems
+        cartItemsList: this.cartItems
       };
 
-      this.http.post<{ orderId: number }>(`${this.apiUrl}/order/createOrder`, body).subscribe({
+      this.http.post<{ orderId: number }>(`${this.apiUrl}/order/createOrder`, orderItems).subscribe({
         next: (response) => {
           this.orderId = response.orderId;
           console.log('Order created successfully with ID:', this.orderId);

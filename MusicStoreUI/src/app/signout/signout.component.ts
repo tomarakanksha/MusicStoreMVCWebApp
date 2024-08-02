@@ -12,6 +12,6 @@ export class SignoutComponent {
   constructor(private router: Router){
     sessionStorage.removeItem('userType');
     sessionStorage.removeItem('userId');
-    this.router.navigate(['/']);
+    window.location.href = '/';
   }
 }
