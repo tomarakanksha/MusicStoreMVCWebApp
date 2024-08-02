@@ -1,8 +1,11 @@
+body {
+  font-family: 'Times New Roman', Times, serif; 
+}
+
 .page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
 }
 
 .topnav {
@@ -10,48 +13,39 @@
   align-items: center;
   justify-content: space-between;
   background-color: #101b4a;
-  overflow: hidden;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.topnav a {
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  flex: 1;
+.topnav .logo img {
+  max-width: 80px; 
+  height: 60px; 
 }
-  .topnav img {
-    display: block;
-    max-width: 80px; 
-    height: 60px; 
-    border: none;
-    padding: 0; 
-  }
-  .logo:hover {
-    background-color: #101b4a ;
-    
-  }
-  .topnav .nav-links {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-  }
-  .nav-links a {
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.nav-links a {
   color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
+  padding: 14px 20px; 
   text-decoration: none;
   font-size: 17px;
-  margin-left: 16px;
-  }
-  
-  .topnav a.active {
-    background-color: #101b4a;
-    color: white;
-  }
- 
-  .topnav a:hover {
-    background-color: #101b4a;
-    opacity:1;
-  }
+  transition: background-color 0.3s;
+  margin-left: 20px; 
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.topnav a:hover {
+  background-color: rgb(225, 126, 5);
+}
+
+.topnav .logo:hover {
+  background-color: #101b4a;
+}
+.topnav a.active {
+  background-color: #101b4a;
+  color: white;
+}

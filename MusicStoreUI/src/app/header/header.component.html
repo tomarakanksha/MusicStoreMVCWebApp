@@ -1,23 +1,23 @@
 <div class="topnav">
   <a href="#" class="logo"><img src="../assets/logo.png" alt="logo"></a>
-      
+
+  <div class="nav-links">
     <ng-container *ngIf="userType === 'E'">
-      <a  href="/EmployeeDashboard">Dashboard</a>
+      <a href="/EmployeeDashboard">Dashboard</a>
       <a href="/inventory">Manage Inventory</a>
       <a href="/Profile">Profile</a>
+      <a href="/Logout">Logout</a>
     </ng-container>
     
     <ng-container *ngIf="userType === 'C'">
-      <a  href="/CustomerDashboard">Dashboard</a>
+      <a href="/CustomerDashboard">Dashboard</a>
       <a href="/cart">Cart</a>
-      <!-- <a href="/Profile">Profile</a> -->
       <a href="/Logout">Logout</a>
     </ng-container>
     
     <ng-container *ngIf="!userType">
-      <a href="/CustomerDashboard">Dashboard</a>
       <a href="/Login">Login</a>
       <a href="/register">Register</a>
     </ng-container>
   </div>
-  
+</div>
