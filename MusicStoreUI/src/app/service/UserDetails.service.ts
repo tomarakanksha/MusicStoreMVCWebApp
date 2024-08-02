@@ -19,7 +19,7 @@ export class UserDetailsService{
         return this.http.get<Customer>(API_URL+ '/Customer/GetCustomerByID?id='+ id,httpOptions);
     }
 
-    getEmployeeDetails(id: number):Observable<Employee>{
+    getEmployeeDetails(id: string | null):Observable<Employee>{
         return this.http.get<Employee>(API_URL+ '/Employee/GetEmployeeByID?id='+ id,httpOptions);
     }
 }

@@ -15,13 +15,18 @@ import { getAlbums } from '../service/album.data.service';
 })
 export class EmployeeDashboardComponent implements OnInit {
   albums: Album[] = [];
-  userId: string | null = sessionStorage.getItem("userId");
+  userId: string | null = '';
 
   constructor(
     private albumDataService:getAlbums,
     private http: HttpClient
   ){
-      
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      if( sessionStorage.getItem('userType')!== "E" ){
+        window.location.href= "/";
+      }
+      this.userId= sessionStorage.getItem("userId")
+    }
     }
     
     public ngOnInit(): void {

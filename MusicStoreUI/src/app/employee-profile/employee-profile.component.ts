@@ -12,11 +12,17 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./employee-profile.component.css'],
 })
 export class EmployeeProfileComponent implements OnInit {
-  userId: number;
+  userId: string  | null = '';
   employee: Employee;
 
   constructor(private router: Router, private userDetailsService: UserDetailsService) {
-    this.userId = parseInt(sessionStorage.getItem('userId') || '0', 10);
+    if (typeof window !== 'undefined' && window.sessionStorage) {
+      if( sessionStorage.getItem('userType')!== "E" ){
+        window.location.href= "/";
+      }
+      this.userId= sessionStorage.getItem("userId");
+    }
+
     this.employee = new Employee(0, '', '', '', '', '', '', '');
   }
 

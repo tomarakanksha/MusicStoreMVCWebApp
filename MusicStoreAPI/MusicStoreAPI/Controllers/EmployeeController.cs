@@ -15,7 +15,7 @@ namespace MusicStoreMVCebApp.Controllers
         }
 
         [HttpGet("GetEmployeeByID")]
-        public EmployeeDTO GetEmployeeByID([FromHeader] int id)
+        public EmployeeDTO GetEmployeeByID([FromQuery] int id)
         {
             return _employeeDL.GetEmployeeByID(id);
         }
