@@ -1,13 +1,13 @@
 export class Customer {
     constructor(
-        public CustomerId:number,
-        public FName :string,
-        public LName :string,
-        public EmailId :string,
-        public ShippingAddr :string,
-        public BillingAddr :string,
-        public CustomerCategory :string,
-        public Phone :string,
-        public Password :string,
+        public customerId:number,
+        public fName :string,
+        public lName :string,
+        public emailId :string,
+        public shippingAddr :string,
+        public billingAddr :string,
+        public customerCategory :string,
+        public phone :string,
+        public password :string,
     ){}
 }

@@ -22,7 +22,7 @@ namespace MusicStoreAPI.Controllers
         }
 
         [HttpGet("GetCustomerByID")]
-        public CustomerDTO GetCustomerByID([FromHeader] int id)
+        public CustomerDTO GetCustomerByID([FromQuery] int id)
         {
             return _customer.GetCustomerByID(id);
         }

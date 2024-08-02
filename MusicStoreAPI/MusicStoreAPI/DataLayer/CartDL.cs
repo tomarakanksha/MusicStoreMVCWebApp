@@ -92,11 +92,8 @@ namespace MusicStoreAPI.DataLayer
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.Add(new SqlParameter("@cartid", cartId));
 
-                if(cmd.ExecuteReader().HasRows)
-                {
-                    return 0;
-                }
-                return -1;
+                cmd.ExecuteReader();
+                return 1;
             }
             catch (Exception ex)
             {

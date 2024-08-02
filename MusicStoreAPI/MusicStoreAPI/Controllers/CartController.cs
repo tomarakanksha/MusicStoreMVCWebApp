@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MusicStoreAPI.DataLayer;
 using MusicStoreAPI.DTO;
+using System.Text.Json;
 
 namespace MusicStoreAPI.Controllers
 {
@@ -33,14 +34,32 @@ namespace MusicStoreAPI.Controllers
         }
 
         [HttpPost("RemoveItem")]
-        public IActionResult RemoveItem(long cartId)
+        public IActionResult RemoveItem([FromBody] JsonElement requestBody)
         {
+            if (requestBody.ValueKind != JsonValueKind.Object)
+            {
+                return BadRequest("Invalid request body format");
+            }
+
+            if (!requestBody.TryGetProperty("cartId", out JsonElement cartIdElement))
+            {
+                return BadRequest("cartId is missing from the request body");
+            }
+
+            if (!cartIdElement.TryGetInt64(out long cartId))
+            {
+                return BadRequest("Invalid cartId format");
+            }
+
             int status = _cartItems.RemoveItem(cartId);
             if (status == -1)
             {
                 return BadRequest();
             }
+
             return Ok();
+            
         }
+
     }
 }
